@@ -15,11 +15,11 @@ The milestone one project contains the following:
 brew install jenkins
 ```
 * The following plugins were installed in Jenkins:
-* GIT plugin
-* Email Extension plugin
-* Mail Watcher plugin
-* Multi-Branch Project plugin
-* Post-Build scripts plugin
+* * GIT plugin
+* * Email Extension plugin
+* * Mail Watcher plugin
+* * Multi-Branch Project plugin
+* * Post-Build scripts plugin
 
 * Added the Maven, JDK installation paths in the Jenkins System settings.
 
