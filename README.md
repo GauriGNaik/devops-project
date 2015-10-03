@@ -1,16 +1,20 @@
 # devops-project
+The milestone one project contains the following: 
+* Apache Mavens project 'Commons-Csv' containing post-commit file 
+* Readme
+* Screencast
+* Jenkins config file 
 
 ### Build section
 ## Setup
 
-* Forked Apache Java Mavens project titled 'commons-csv'. The following is the link to the forked repository:
+* Used Apache Java Mavens project titled 'commons-csv'. 
 
-
-* Used Jenkins as the build server. To install Jenkins, we have used the following command:
+* Used Jenkins as the build server. To install Jenkins on Mac, we have used the following command:
 ```
 brew install jenkins
 ```
-* The following plugins were intalled in Jenkins:
+* The following plugins were installed in Jenkins:
 GIT plugin
 Email Extension plugin
 Mail Watcher plugin
@@ -19,9 +23,9 @@ Post-Build scripts plugin
 
 * Added the Maven, JDK installation paths in the Jenkins System settings.
 
-* Added the smtp server value=smtp.gmail.com
+* Added the smtp server value as smtp.gmail.com
 
-* Added the user name and password for smtp authentication using ssl protocol and smtp port 465.
+* Added the user email and password for smtp authentication using ssl protocol and smtp port 465. This email is used for sending the email.
 
 * Added the default recipients for the email.
 
@@ -50,7 +54,7 @@ clean install
 ```
 * Add the following post-build steps:
 Email Notification
-Add the always trigger, so that mail is sent everytime build is triggered. Also add the recipients list. 
+Add the always trigger, so that email is sent everytime build is triggered. Also add the recipients list. 
 
 Post-build scripts
 Add the following script in build steps:
@@ -60,10 +64,11 @@ open http://localhost:8080/view/All/builds
 ```
 
 Aggregate downstream test results
-Generates a file containing all the tests. 
+Generates a file containing all the test reports. 
 
 ##Capabilities
 
+* Post-Commit Hook
 * Create a post-commit file in .git/hooks and place the following script inside
 ```
 #!/bin/bash
@@ -73,6 +78,20 @@ branch_name="(unnamed branch)"
 url='http://localhost:8080/job/commons-csv/branch/'${branch_name}'/build'
 curl $url
 ``` 
+
+* In the build step in Jenkins, to do a clean build we have used:
+```
+clean install
+```
+
+* For post-build tasks, we send email and generate test reports as described above
+
+* The branch on which commit is done, the corresponding job in jenkins is triggered. 
+
+* Open the build history page in jenkins as a post build task.  
+
+
+
 
 Team: 
 Gauri Naik (gnaik2)
