@@ -49,17 +49,17 @@ sudo postfix start
 clean install
 ```
 * Add the following post-build steps:
-1. Email Notification
+* Email Notification:
 Add the always trigger, so that email is sent everytime build is triggered. Also add the recipients list. 
 
-2. Post-build scripts
+* Post-build scripts:
 Add the following script in build steps:
 ```
 #!/bin/bash
 open http://localhost:8080/view/All/builds
 ```
 
-3. Aggregate downstream test results
+* Aggregate downstream test results:
 Generates a file containing all the test reports. 
 
 ##Capabilities
