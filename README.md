@@ -15,6 +15,7 @@ GIT plugin
 Email Extension plugin
 Mail Watcher plugin
 Multi-Branch Project plugin
+Post-Build scripts plugin
 
 * Added the Maven, JDK installation paths in the Jenkins System settings.
 
@@ -36,12 +37,43 @@ And in the gmail account used for sending the email, turn off safety.
 
 * Blank the Sync Branches Schedule textbox in the configuration of the project. 
 
-* Select the Git option
+* Select the Git option and then enter the path of the local Git repository using:
+  file://
 
+* Specify the Git branches from the project to be included and excluded.
+
+* Remove all the default build triggers.
+
+* In the build step, specify the goals and options:
+```
+clean install
+```
+* Add the following post-build steps:
+Email Notification
+Add the always trigger, so that mail is sent everytime build is triggered. Also add the recipients list. 
+
+Post-build scripts
+Add the following script in build steps:
+```
+#!/bin/bash
+open http://localhost:8080/view/All/builds
+```
+
+Aggregate downstream test results
+Generates a file containing all the tests. 
 
 ##Capabilities
 
-* 
+* Create a post-commit file in .git/hooks and place the following script inside
+```
+#!/bin/bash
+branch_name="$(git symbolic-ref --short HEAD 2>/dev/null)" ||
+branch_name="(unnamed branch)"
+
+url='http://localhost:8080/job/commons-csv/branch/'${branch_name}'/build'
+curl $url
+``` 
+
 
 
 
