@@ -29,7 +29,7 @@ brew install jenkins
 ```
 sudo postfix start
 ```
-And in the gmail account used for sending the email, turn off safety. 
+* And in the gmail account used for sending the email, turn off safety. 
 
 * Create Maven multi-branch project titled 'commons-csv' in Jenkins.
 
@@ -49,17 +49,17 @@ And in the gmail account used for sending the email, turn off safety.
 clean install
 ```
 * Add the following post-build steps:
-Email Notification
+1. Email Notification
 Add the always trigger, so that email is sent everytime build is triggered. Also add the recipients list. 
 
-Post-build scripts
+2. Post-build scripts
 Add the following script in build steps:
 ```
 #!/bin/bash
 open http://localhost:8080/view/All/builds
 ```
 
-Aggregate downstream test results
+3. Aggregate downstream test results
 Generates a file containing all the test reports. 
 
 ##Capabilities
