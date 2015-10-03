@@ -86,12 +86,12 @@ clean install
 
 * Open the build history page in jenkins as a post build task.  
 
-
-
+### Screencast
+![screencast m1](https://cloud.githubusercontent.com/assets/11006675/10261150/a0c5d94a-6957-11e5-89cb-c514f2911627.gif)
 
 Team: 
-Gauri Naik (gnaik2)
-Arvind Telharkar(adtelhar)
+Gauri Naik (gnaik2), 
+Arvind Telharkar(adtelhar), 
 Ravneet Kaur(ravnee)
 
 
